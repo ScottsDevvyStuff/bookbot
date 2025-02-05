@@ -8,6 +8,17 @@ def count_words(foo):
     word_count = len(words)
     return word_count
 
+def count_characters(bar):
+    char_dict = {}
+    to_lower_case = bar.lower()
+    for char in to_lower_case:
+        if char not in char_dict:
+            char_dict[char] = 1
+        else:
+            char_dict[char] += 1      
+    return char_dict
+
 whole_book = main()
 word_count = count_words(whole_book)
-print(word_count)
+character_count = count_characters(whole_book)
+print(character_count)

@@ -18,7 +18,22 @@ def count_characters(bar):
             char_dict[char] += 1      
     return char_dict
 
+def sort_on(dict):
+    return dict["count"]
+
+def sort_and_report(dict):
+    char_list = []
+    for char, count in dict.items():
+        if char.isalpha():  # Only include alphabet characters
+            char_list.append({"character": char, "count": count})
+    char_list.sort(reverse=True, key=sort_on)
+    print("--- Begin report of books/frankenstein.txt ---")
+    print(f"{word_count} words found in the document")
+    for char in char_list:
+        print(f"The {char} character was found {count} times")
+    print("--- End report ---")
+
 whole_book = main()
 word_count = count_words(whole_book)
 character_count = count_characters(whole_book)
-print(character_count)
+report = sort_and_report(character_count)
